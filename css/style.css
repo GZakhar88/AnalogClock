@@ -1,0 +1,288 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container {
+width: 350px;
+height: auto;
+align-items: center;
+justify-content: center;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #091921;
+    transition: 0.3s linear;
+}
+.body .temperature-description p {
+    color: white;
+}
+.body .location p {
+    color: white;
+}
+.body .temperature-value span {
+    color: white;
+}
+.body .temperature-value p {
+    color: white;
+}
+.clock {
+    width: 350px;
+    height: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url(/images/clock.png);
+    background-size: cover;
+    border: 4px solid #091921;
+    border-radius: 50%;
+    box-shadow: 0 -15px 15px rgba(255,255,255,0.05),
+    inset 0 -15px 15px rgba(255,255,255,0.05),
+    0 15px 15px rgba(0,0,0,0.3),
+    inset 0 15px 15px rgba(0,0,0,0.3);
+    transition: 0.3s linear;
+}
+.clock:before {
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background: #fff;
+    border-radius: 50%;
+    z-index: 10000;
+}
+.clock .hour,
+.clock .min,
+.clock .sec {
+    position: absolute;
+}
+.clock .hour, .hr {
+    width: 160px;
+    height: 160px;
+}
+.clock .min, .mn {
+    width: 190px;
+    height: 190px;
+}
+.clock .sec, .sc {
+    width: 230px;
+    height: 230px;
+}
+.hr, .mn, .sc {
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    position: absolute;
+    border-radius: 50%;
+}
+.hr:before {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 80px;
+    background: #ff105e;
+    z-index: 10;
+    border-radius: 6px 6px 0 0;
+}
+.mn:before {
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 90px;
+    background: #fff;
+    z-index: 11;
+    border-radius: 6px 6px 0 0;
+}
+.sc:before {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 150px;
+    background: #008eff;
+    z-index: 12;
+    border-radius: 6px 6px 0 0;
+}
+.button-container{
+    width: 350px;
+    height: 50px;
+    position: relative;
+    top: 60px;
+    align-content: stretch;
+}
+.button-container .first-row {
+    padding: 10px;
+    display: flexbox;
+    flex-wrap: nowrap;
+    text-align: center;
+    
+}
+.button-container .second-row {
+    display: flexbox;
+    flex-wrap: nowrap;
+    text-align: center;
+}
+/* DAY MODE VALUES-----------------------------------------------------------------*/
+.day {
+    background: #d1dae3;
+}
+.day .temperature-description p {
+    color: black;
+}
+.day .location p {
+    color: black;
+}
+.day .temperature-value span {
+    color: black;
+}
+.day .temperature-value p {
+    color: black;
+}
+.day .clock {
+    background: #d1dae3 url(/images/clock.png);
+    background-size: cover;
+    border: 4px solid #cad3dc;
+    box-shadow: -8px -8px 15px rgba(255,255,255,0.5),
+        inset -8px -8px 15px rgba(255,255,255,0.5),
+        10px 10px 10px rgba(0,0,0,0.1),
+        inset 10px 10px 10px rgba(0,0,0,0.3);
+}
+.day .mn:before {
+    background: #091921;
+}
+/* DAY MODE VALUES END------------------------------------------------------------*/
+
+/* SUNSET MODE VALUES-------------------------------------------------------------*/
+.sunset {
+    background: #d3a68d;
+}
+.sunset .clock {
+    background: #c89689 url(/images/clock.png);
+    background-size: cover;
+    border: 4px solid #a47a83;
+    box-shadow: -8px -8px 20px rgba(89, 69, 77, 0.7),
+            inset -8px -8px 15px rgba(2,0,0,0.5),
+            10px 10px 10px rgba(189,138,136,0.1),
+            inset 10px 10px 10px rgba(2,0,0,0.2);
+}
+.sunset .mn:before {
+    background: #091921;
+}
+.sunset .temperature-description p {
+    color: black;
+}
+.sunset .location p {
+    color: black;
+}
+.sunset .temperature-value span {
+    color: black;
+}
+.sunset .temperature-value p {
+    color: black;
+}
+/* SUNSET MODE VALUES END----------------------------------------------------------*/
+
+/* SUNRISE MODE VALUES-------------------------------------------------------------*/
+.sunrise {
+    background: #ffcb69;
+}
+.sunrise .clock {
+    background: #ffcb69 url(/images/clock.png);
+    background-size: cover;
+    border: 4px solid #ffe269;
+    box-shadow: 10px -10px 25px rgba(102, 70, 63, 0.5),
+            inset 5px -10px 8px rgba(249,141,119,0.5),
+            3px 0px 10px rgba(230,92,111,0.1),
+            inset 0px -10px 40px rgba(230,92,111,0.3);
+}
+.sunrise .mn:before {
+    background: #091921;
+}
+.sunrise .temperature-description p {
+    color: black;
+}
+.sunrise .location p {
+    color: black;
+}
+.sunrise .temperature-value span {
+    color: black;
+}
+.sunrise .temperature-value p {
+    color: black;
+}
+/* SUNRISE MODE VALUES END----------------------------------------------------------*/
+
+/*Weather API defaults--------------------------------------------------------------*/
+.notification {
+    bottom: 40px;
+    position: relative;
+    width: 350px;
+    background-color: #f8d7da;
+    display: none;
+    border-radius: 10px;
+    border: #721c24;
+    border-style: solid;
+}
+.notification p {
+    color: #721c24;
+    font-size: 22px;
+    text-align: center;
+}
+.weather-container {
+    position: relative;
+    top: 40px;
+    width: 350px;
+    height: 240px;
+    /* background-color: white; */
+    text-align: center;
+    margin: 0 auto;
+}
+.weather-icon {
+    width: 350px;
+    height: 128px;
+}
+.weather-icon img {
+    src: url(/images/icons/unknown.png);
+    display: block;
+    margin: -15px auto;
+}
+.temperature-value {
+    width: 350px;
+    height:60px;
+}
+.temperature-value p {
+    padding: 0;
+    margin: 0;
+    color: white;
+    font-size: 4em;
+    text-align: center;
+    cursor: pointer;
+}
+/* .temperature-value p:hover {  
+} */
+.temperature-value span {
+    color: white;
+    font-size: 0.5em;
+}
+/* .temperature-description {
+
+} */
+.temperature-description p {
+    padding: 8px;
+    margin: 0;
+    color:white;
+    text-align: center;
+    font-size: 1.2em;
+}
+/* .location {
+    
+} */
+.location p {
+    margin: 0;
+    padding: 0;
+    color: white;
+    text-align: center;
+    font-size: 0.8em;
+}
