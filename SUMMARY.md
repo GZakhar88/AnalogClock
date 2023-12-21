@@ -1,6 +1,6 @@
 # Table of contents
 
-* [🐧 Page](README.md)
+* [🐧 Readme Page](README.md)
 * [🖌 Getting started](getting-started.md)
 
 ## INTRODUCTION
